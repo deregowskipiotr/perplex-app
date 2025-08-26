@@ -5,8 +5,7 @@ import clsx from "clsx";
 import { motion, type Variants, AnimatePresence } from "framer-motion";
 import { navigation } from "../constants";
 
-
-// Increase staggerChildren delay to 0.5 seconds
+// Increase staggerChildren delay to 0.3 seconds
 const containerVariants: Variants = {
   hidden: {},
   visible: {
@@ -39,32 +38,28 @@ export default function Navbar() {
   return (
     <header
       className={clsx(
-        "sticky top-0 z-50 backdrop-blur-md transition-colors duration-300",
-        isScrolled ? "bg-black/80 shadow-md" : "bg-transparent"
+        "fixed top-0 z-50 backdrop-blur-md transition-colors duration-300 w-full left-0 right-0",
+        isScrolled ? "bg-black/40 shadow-lg" : "bg-inherit"
       )}
     >
       <nav
-        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center h-16 font-cormorant text-white md:border-b border-yellow-300/30"
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center h-16 font-cormorant md:border-b border-yellow-300/30"
         aria-label="Main navigation"
       >
-        {/* Desktop animation container */}
+        {/* Desktop container with stagger animation for links only */}
         <motion.div
           className="flex flex-1 md:items-center"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          {/* Logo */}
-          <motion.a
-            href="/"
-            className="text-2xl font-cormorant tracking-tight italic"
-            variants={itemVariants}
-          >
+          {/* Logo without animation */}
+          <a href="/" className="text-2xl font-cormorant tracking-tight italic">
             PD
-          </motion.a>
+          </a>
 
-          {/* Navigation links */}
-          <div className="hidden md:flex flex-1 justify-center gap-12">
+          {/* Navigation links with animation */}
+          <div className="hidden md:flex flex-1 justify-center gap-10">
             {navigation.map((item) => (
               <motion.a
                 key={item.name}
@@ -77,14 +72,13 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Sign In button */}
-          <motion.a
+          {/* Sign In button without animation */}
+          <a
             href="/signin"
-            className="hidden md:inline-block rounded-full px-5 py-2 font-cormorant uppercase border border-white/40 hover:border-yellow-300 hover:text-yellow-300 transition-colors duration-300 ease-in-out"
-            variants={itemVariants}
+            className="hidden md:inline-block rounded-xl px-5 py-2 font-cormorant uppercase border border-white/40 hover:border-yellow-300 hover:text-yellow-300 transition-colors duration-300 ease-in-out"
           >
             Sign In
-          </motion.a>
+          </a>
         </motion.div>
 
         {/* Mobile hamburger with fade/slide animation */}
@@ -160,7 +154,7 @@ export default function Navbar() {
                 ))}
                 <a
                   href="/signin"
-                  className="mt-4 rounded-full px-5 py-2 w-full text-center font-cormorant border-1 border-white text-white hover:border-yellow-300 hover:text-yellow-300 transition-colors duration-300 ease-in-out"
+                  className="mt-4 rounded-xl px-5 py-2 w-full text-center font-cormorant border-1 border-white text-white hover:border-yellow-300 hover:text-yellow-300 transition-colors duration-300 ease-in-out"
                 >
                   Sign In
                 </a>
