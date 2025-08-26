@@ -22,7 +22,7 @@ export default function Hero() {
       {/* Content container */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center font-cormorant w-[80%] mx-auto mt-0 lg:mt-14">
         <motion.h1
-          className="text-4xl sm:text-6xl font-extrabold mb-26 max-w-4xl leading-tight mt-[-120px]"
+          className="text-4xl sm:text-6xl font-extrabold mb-20 lg:mb-26 max-w-4xl leading-tight lg:mt-[-120px] mt-[-80px]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
@@ -30,7 +30,7 @@ export default function Hero() {
           Discover the Most Iconic & Finest Quality Alcoholic Spirits
         </motion.h1>
         <motion.p
-          className="max-w-3xl text-lg sm:text-xl font-light text-gray-300 mb-26"
+          className="max-w-3xl text-lg sm:text-xl font-light text-gray-300 mb-20 lg:mb-26"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
