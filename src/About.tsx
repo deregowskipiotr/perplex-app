@@ -1,4 +1,12 @@
+import { motion } from "framer-motion";
+import { aboutDescription } from "../constants";
+
+
 const About = () => {
+  // Split description into words
+  const words = aboutDescription.flatMap((paragraph) => paragraph.split(" "));
+
+
   return (
     <div
       id="about"
@@ -10,22 +18,33 @@ const About = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay with dark semi-transparent layer for better contrast */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/70 pointer-events-none" />
 
-      {/* Content container with z-index for overlay text */}
       <div className="relative z-10 max-w-4xl text-white font-cormorant">
-        <h1 className="text-4xl sm:text-6xl mb-10 lg:mb-16">What Fuels Our Passion?</h1>
-        <p className="lg:text-2xl sm:text-lg leading-normal tracking-wide mb-8 text-white/40">
-          True connoisseurs of premium spirits have an unwavering passion for
-          excellence, craftsmanship, and authenticity. They appreciate the
-          delicate nuances of terroir, maturation, and masterful distillation
-          that imbue each bottle with its unique signature. For them, tasting is
-          more than just flavor — it’s an immersive journey through rich aromas,
-          complex notes, and refined finishes. They seek rare, limited-edition
-          releases and carefully curated collections that celebrate heritage and
-          artistry. Their dedication reflects a refined lifestyle where every
-          dram tells a story and every label carries a legacy.
+        <h1
+          className="text-4xl sm:text-6xl mb-10 lg:mb-16"
+        >
+          What Fuels Our Passion?
+        </h1>
+
+        <p className="lg:text-2xl text-xl text-start leading-normal tracking-wide mb-8 text-white/40">
+          {words.map((word, index) => (
+            <motion.span
+              key={index}
+              className="inline-block mr-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: index * 0.15,
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true }}
+            >
+              {word}
+            </motion.span>
+          ))}
         </p>
       </div>
     </div>

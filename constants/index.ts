@@ -63,8 +63,66 @@ const products = [
   },
 ];
 
+const testimonials = [
+  {
+    id: 1,
+    name: "Sarah Johnson",
+    image: "/images/sarah.jpg",
+    review:
+      "The craftsmanship and quality truly shine through every bottle. It's like drinking art.",
+    position: "Chief Innovation Alchemist",
+    company: "— at Verdant Horizon Spirits",
+  },
+  {
+    id: 2,
+    name: "Michael Lee",
+    image: "/images/michael.jpg",
+    review:
+      "An exquisite collection that caters to true connoisseurs. Their selection is unmatched.",
+    position: "Master of Flavor Narratives",
+    company: "— at Golden Oak Distillers",
+  },
+  {
+    id: 3,
+    name: "Emma Davis",
+    image: "/images/emma.jpg",
+    review:
+      "Sip by sip, you can taste the heritage and passion. It's a journey into history.",
+    position: "Director of Liquid Craftsmanship",
+    company: "— at Celestial Barrel Co.",
+  },
+  {
+    id: 4,
+    name: "James Wilson",
+    image: "/images/james.jpeg",
+    review:
+      "The attention to detail and limited editions make this collection incredibly special.",
+    position: "Head of Artisan Excellence",
+    company: "— at Heritage Spirits Collective",
+  },
+  {
+    id: 5,
+    name: "Olivia Brown",
+    image: "/images/olivia.jpg",
+    review:
+      "Every bottle tells a story of master distillers and artisanal craftsmanship. A true delight.",
+    position: "Guardian of Legacy Blends",
+    company: "— at Noble Oak Whisky Works",
+  },
+];
+
+const aboutDescription = [
+  "What fuels our passion is the relentless pursuit of perfection in every drop we craft.",
+  "It’s the harmony of time-honored tradition and meticulous innovation, where patience meets precision.",
+  "We honor the raw essence of nature—pure water, the finest grains, and rare botanicals—with unwavering respect and reverence.",
+  "Each barrel tells a story, bearing the marks of aging, terroir, and masterful hands shaping unforgettable character.",
+  "This dedication to excellence transcends mere production; it’s a lifelong devotion to creating spirits that elevate the senses and celebrate heritage."
+];
+
 export {
   navigation,
-  products
+  products,
+  testimonials,
+  aboutDescription,
 };
 
