@@ -5,13 +5,12 @@ import clsx from "clsx";
 import { motion, type Variants, AnimatePresence } from "framer-motion";
 import { navigation } from "../constants";
 
-// Increase staggerChildren delay to 0.3 seconds
 const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
       staggerChildren: 0.3,
-      delayChildren: 0.3, // Delay before the first child appears
+      delayChildren: 0.3,
     },
   },
 };
@@ -28,12 +27,41 @@ const itemVariants: Variants = {
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+
+      let current = activeSection;
+      navigation.forEach(({ id }) => {
+        const section = document.getElementById(id);
+        if (section) {
+          const offsetTop = section.offsetTop - 120; // navbar height + margin offset
+          if (window.scrollY >= offsetTop) {
+            current = id;
+          }
+        }
+      });
+      setActiveSection(current);
+    };
+
     window.addEventListener("scroll", onScroll);
+
+    onScroll();
+
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [activeSection]);
+
+  const handleScroll = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(id);
+    }
+  };
 
   return (
     <header
@@ -46,7 +74,6 @@ export default function Navbar() {
         className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center h-16 font-cormorant md:border-b border-yellow-300/30"
         aria-label="Main navigation"
       >
-        {/* Desktop container with stagger animation for links only */}
         <motion.div
           className="flex flex-1 md:items-center"
           initial="hidden"
@@ -60,14 +87,20 @@ export default function Navbar() {
 
           {/* Navigation links with animation */}
           <div className="hidden md:flex flex-1 justify-center gap-10">
-            {navigation.map((item) => (
+            {navigation.map(({ id, title }) => (
               <motion.a
-                key={item.name}
-                href={item.href}
-                className="font-medium text-white hover:text-yellow-300 transition-colors duration-300 ease-in-out uppercase"
+                key={id}
+                href={`#${id}`}
+                onClick={handleScroll(id)}
+                className={clsx(
+                  "font-medium transition-colors duration-300 ease-in-out uppercase cursor-pointer",
+                  activeSection === id
+                    ? "text-yellow-300"
+                    : "text-white hover:text-yellow-300"
+                )}
                 variants={itemVariants}
               >
-                {item.name}
+                {title}
               </motion.a>
             ))}
           </div>
@@ -142,14 +175,21 @@ export default function Navbar() {
                 </button>
               </div>
               <div className="mt-8 flex flex-col gap-4 items-center uppercase font-cormorant">
-                {navigation.map((item) => (
+                {navigation.map(({ id, title }) => (
                   <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
+                    key={id}
+                    href={`#${id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMobileMenuOpen(false);
+                      const section = document.getElementById(id);
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                     className="block px-2 py-3 rounded text-lg font-medium text-white hover:text-yellow-300 transition-colors duration-300 ease-in-out"
                   >
-                    {item.name}
+                    {title}
                   </a>
                 ))}
                 <a

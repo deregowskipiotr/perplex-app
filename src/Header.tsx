@@ -2,9 +2,9 @@
 // components/Hero.tsx
 import { motion } from "framer-motion";
 
-export default function Hero() {
+export default function Header() {
   return (
-    <section className="relative h-screen w-full z-0">
+    <section id="header" className="relative h-screen w-full z-0">
       {/* Background image */}
       <div
         className="
@@ -33,17 +33,17 @@ export default function Hero() {
           className="max-w-3xl text-lg sm:text-xl font-light text-gray-300 mb-20 lg:mb-26"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
         >
           Explore our exclusive collection of the highest quality and most
           expensive alcohol brands from around the world.
         </motion.p>
         <motion.a
           href="#products"
-          className="inline-block bg-yellow-300/20 hover:bg-yellow-600 font-cormorant rounded-xl px-8 py-3 shadow-lg transition-colors duration-300 ease-in-out uppercase"
+          className="inline-block bg-yellow-300/30 hover:bg-yellow-500 font-cormorant rounded-xl px-8 py-3 shadow-lg transition-colors duration-300 ease-in-out uppercase"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
         >
           Explore Products
         </motion.a>

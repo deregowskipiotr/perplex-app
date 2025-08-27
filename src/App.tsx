@@ -1,13 +1,15 @@
 import Navbar from "./Navbar"
-import Hero from "./Hero"
+import Header from "./Header"
 import About from "./About"
+import Products from "./Products"
 
 const App = () => {
   return (
     <main>
       <Navbar />
-      <Hero />
+      <Header />
       <About />
+      <Products />
     </main>
   )
 }
