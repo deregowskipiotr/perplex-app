@@ -30,7 +30,7 @@ export default function Header() {
           Discover the Most Iconic & Finest Quality Alcoholic Spirits
         </motion.h1>
         <motion.p
-          className="max-w-3xl text-lg sm:text-xl font-light text-gray-300 mb-20 lg:mb-26"
+          className="max-w-3xl text-lg md:text-xl font-light text-gray-300 mb-20 lg:mb-26"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}

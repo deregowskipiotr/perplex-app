@@ -46,7 +46,7 @@ export default function Testimonials() {
         What Our Clients Say
       </h2>
 
-      <div className="relative flex flex-col md:flex-row-reverse items-center bg-yellow-300/10 backdrop-blur-xl rounded-2xl p-8 shadow-lg h-[380px] md:min-h-[300px] gap-8">
+      <div className="relative flex flex-col md:flex-row-reverse items-center bg-yellow-300/20 backdrop-blur-xl rounded-2xl p-8 shadow-lg h-[380px] md:min-h-[300px] gap-8 overflow-hidden">
         <AnimatePresence mode="wait" initial={false}>
           <motion.img
             key={currentTestimonial.id}
@@ -88,7 +88,7 @@ export default function Testimonials() {
           type="button"
           onClick={prev}
           aria-label="Previous testimonial"
-          className="rounded-full bg-yellow-300/50 p-2 shadow hover:bg-yellow-400 transition"
+          className="rounded-full bg-yellow-300/50 p-2 shadow hover:bg-yellow-400 transition cursor-pointer"
         >
           <ChevronLeftIcon className="w-6 h-6 text-black" />
         </button>
@@ -96,7 +96,7 @@ export default function Testimonials() {
           type="button"
           onClick={next}
           aria-label="Next testimonial"
-          className="rounded-full bg-yellow-300/50 p-2 shadow hover:bg-yellow-400 transition"
+          className="rounded-full bg-yellow-300/50 p-2 shadow hover:bg-yellow-400 transition cursor-pointer"
         >
           <ChevronRightIcon className="w-6 h-6 text-black" />
         </button>

@@ -38,7 +38,7 @@ const Products = () => {
               animate="visible"
               className={`
                 flex flex-col 
-              bg-white/20
+               bg-white/10
                 backdrop-blur-xl
                 rounded-xl
                 p-5
