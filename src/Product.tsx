@@ -3,7 +3,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 
 interface ProductProps {
   title: string;
-  description: string;
+  description?: string;
   subDescription?: string;
   img: string;
   onClose: () => void;
@@ -25,52 +25,64 @@ const productCardVariants = {
 
 const Product: React.FC<ProductProps> = ({
   title,
+  //description,
   subDescription,
   img,
   onClose,
 }) => (
   <motion.div
-    className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm"
     variants={productCardVariants}
     initial="hidden"
     animate="visible"
     exit="exit"
-    onClick={onClose} // Click outside to close (optional)
+    //onClick={onClose} // Click outside to close (optional)
   >
     <div
       className="
-        rounded-2xl 
-        shadow-2xl 
-        bg-white/10 
-        backdrop-blur-xl 
-        border border-white/20 
-        max-w-[620px] w-full
+        relative
+        rounded-2xl
+        shadow-2xl
+        bg-white/70
+        backdrop-blur-xl
+        border border-white/20
+        max-w-[720px] w-full
         h-[80%] md:h-[90%]
-        mx-4 p-0 
-        flex flex-col overflow-hidden relative"
+        mx-4 p-4
+        flex flex-col justify-center items-center
+        overflow-hidden
+      "
       onClick={(e) => e.stopPropagation()} // Prevent close on card click
     >
-      <div className="flex flex-col items-center p-6 h-[100%]">
-        <h2 className="font-cormorant text-2xl md:text-3xl text-yellow-200 mt-1 mb-4 text-center">
+      {/* Background Image with full size and lower opacity */}
+      <div
+        className="absolute inset-0 bg-cover bg-center object-cover w-max-[90px] md:max-w-[80%] md:my-auto md:mx-auto"
+        style={{ backgroundImage: `url('${img}')` }}
+        aria-hidden="true"
+      />
+
+      {/* Dark overlay to improve contrast */}
+      <div className="absolute inset-0 bg-black/50 pointer-events-none" />
+
+      {/* Content container (stacked above overlays) */}
+      <div className="relative z-10 text-start px-2 md:px-10 md:pt-4 flex flex-col items-center justify-between h-full">
+        <h2 className="font-cormorant text-3xl md:text-4xl text-yellow-200  max-w-[90%]">
           {title}
         </h2>
 
-        <div
-          className="w-full h-60 md:h-80 bg-cover bg-center"
-          style={{ backgroundImage: `url('${img}')` }}
-        />
-
-        <p className="text-gray-100 font-light text-center text-base md:text-lg mt-14">
-          {subDescription}
-        </p>
+        {subDescription && (
+          <p className="text-gray-300 font-light text-base md:text-lg w-full">
+            {subDescription}
+          </p>
+        )}
 
         <button
           type="button"
-          className="absolute top-4 right-5 text-yellow-100 hover:text-yellow-300 text-2xl bg-black/30 rounded-full px-2 py-1"
+          className="absolute top-0 md:top-4 right-0 md:right-5 text-yellow-100 hover:text-yellow-300 text-2xl bg-black/30 rounded-full px-2 py-1"
           onClick={onClose}
           aria-label="Close"
         >
-          <XMarkIcon className="h-6 w-6 cursor-pointer" />
+          <XMarkIcon className="h-6 w-6 cursor-pointer"/>
         </button>
       </div>
     </div>

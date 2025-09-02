@@ -38,14 +38,14 @@ const Products = () => {
               animate="visible"
               className={`
                 flex flex-col 
-               bg-white/10
+               bg-white/5
                 backdrop-blur-xl
                 rounded-xl
                 p-5
                 shadow-lg
                 border border-white/20
                 min-h-[300px]
-                md:min-h-[340px]
+                md:max-h-[440px]
                 md:px-8
                 relative
                 glass-card
@@ -56,16 +56,16 @@ const Products = () => {
                 {product.title}
               </h3>
 
-              {/* Image: centered on mobile, right on desktop */}
-              <div className="w-full md:w-[80%] h-full mx-auto flex justify-center items-center mt-6 mb-2 md:mt-0 md:mb-0 md:justify-end md:items-center">
-                <img
-                  src={product.img}
-                  alt={product.title}
-                  className="
-                      rounded-lg object-cover h-[110px] w-[90px]
-                      md:h-full md:w-full
-                    bg-black/10"
-                />
+              {/* Image: centered - change the size on mobile view afyer deploy? */}
+              <div className="flex md:flex-col items-center justify-center w-full h-full mb-4 md:mt-10 md:overflow-hidden">
+                <div className="w-full md:w-[30%] md:h-[200px] h-full mb-2 mx-auto flex justify-center items-center md:justify-end md:items-center">
+                  <img
+                    src={product.img}
+                    alt={product.title}
+                    className="rounded-lg object-cover w-[90px] md:h-full md:w-full md:mt-4"
+                    loading="lazy"
+                  />
+                </div>
               </div>
 
               {/* Content Row: stacks on mobile, horizontal on desktop */}
@@ -85,7 +85,7 @@ const Products = () => {
                     className="
                    text-yellow-300 font-medium text-xs md:text-sm underline opacity-90 hover:opacity-100 transition
                     absolute right-6 bottom-5 md:static md:bottom-auto md:right-auto md:mt-4 md:text-left
-                    md:self-end"
+                    md:self-end md:max-h-[120px]"
                   >
                     more
                   </a>

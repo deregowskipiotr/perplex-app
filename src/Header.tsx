@@ -17,7 +17,7 @@ export default function Header() {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+      <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
 
       {/* Content container */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center font-cormorant w-[80%] mx-auto mt-0 lg:mt-14">
