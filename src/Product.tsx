@@ -82,7 +82,7 @@ const Product: React.FC<ProductProps> = ({
           onClick={onClose}
           aria-label="Close"
         >
-          <XMarkIcon className="h-6 w-6 cursor-pointer"/>
+          <XMarkIcon className="h-5 md:h-6 w-5 md:w-6 cursor-pointer"/>
         </button>
       </div>
     </div>
