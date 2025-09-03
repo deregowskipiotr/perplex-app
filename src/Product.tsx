@@ -78,7 +78,7 @@ const Product: React.FC<ProductProps> = ({
 
         <button
           type="button"
-          className="absolute top-0 md:top-4 right-0 md:right-5 text-yellow-100 hover:text-yellow-300 text-2xl bg-black/30 rounded-full px-1 py-1"
+          className="absolute top-0 md:top-4 right-0 md:right-5 text-white hover:text-yellow-300 text-xl md:text-2xl bg-black/30 rounded-full px-1 py-1"
           onClick={onClose}
           aria-label="Close"
         >
