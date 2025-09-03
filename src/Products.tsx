@@ -83,7 +83,7 @@ const Products = () => {
                       setSelected(i);
                     }} // Show modal for this product
                     className="
-                   text-yellow-300 font-medium text-xs md:text-sm underline opacity-90 hover:opacity-100 transition
+                   text-yellow-300 font-medium text-xs md:text-sm opacity-90 hover:opacity-100 transition
                     absolute right-6 bottom-5 md:static md:bottom-auto md:right-auto md:mt-4 md:text-left
                     md:self-end md:max-h-[120px]"
                   >
