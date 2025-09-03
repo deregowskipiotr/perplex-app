@@ -69,28 +69,29 @@ const Products = () => {
               </div>
 
               {/* Content Row: stacks on mobile, horizontal on desktop */}
-              <div className="flex flex-col md:items-stretch w-full h-full mb-2 md:mb-0 gap-2">
-                {/* Description: full width on mobile, left half on desktop */}
-                <div className="w-full flex flex-col justify-between">
-                  <span className="text-gray-50 text-sm md:text-base font-light text-center md:text-left mb-8 md:mb-0 md:mt-8">
-                    {product.description}
-                  </span>
-                  {/* "More" link below description, right on mobile, left on desktop */}
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setSelected(i);
-                    }} // Show modal for this product
-                    className="
+              
+                <div className="flex flex-col md:items-stretch w-full h-full mb-2 md:mb-0 gap-2">
+                  {/* Description: full width on mobile, left half on desktop */}
+                  <div className="w-full flex flex-col justify-between">
+                    <span className="text-gray-50 text-sm md:text-base font-light text-center md:text-left mb-8 md:mb-0 md:mt-8">
+                      {product.description}
+                    </span>
+                    {/* "More" link below description, right on mobile, left on desktop */}
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setSelected(i);
+                      }} // Show modal for this product
+                      className="
                    text-yellow-300 font-medium text-xs md:text-sm opacity-90 hover:opacity-100 transition
                     absolute right-6 bottom-5 md:static md:bottom-auto md:right-auto md:mt-4 md:text-left
                     md:self-end md:max-h-[120px]"
-                  >
-                    more
-                  </a>
+                    >
+                      more
+                    </a>
+                  </div>
                 </div>
-              </div>
             </motion.div>
           ))}
         </div>

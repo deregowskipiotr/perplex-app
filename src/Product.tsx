@@ -56,7 +56,7 @@ const Product: React.FC<ProductProps> = ({
     >
       {/* Background Image with full size and lower opacity */}
       <div
-        className="absolute inset-0 bg-cover bg-center object-cover w-max-[90px] md:max-w-[80%] md:my-auto md:mx-auto"
+        className="absolute inset-0 bg-cover bg-center object-cover w-max-[90px] md:max-w-[70%] md:my-auto md:mx-auto"
         style={{ backgroundImage: `url('${img}')` }}
         aria-hidden="true"
       />
@@ -65,13 +65,13 @@ const Product: React.FC<ProductProps> = ({
       <div className="absolute inset-0 bg-black/50 pointer-events-none" />
 
       {/* Content container (stacked above overlays) */}
-      <div className="relative z-10 text-senter px-2 md:px-10 md:pt-4 flex flex-col items-center justify-between h-full">
+      <div className="relative z-10 text-center px-2 md:px-10 md:pt-4 flex flex-col items-center justify-between h-full">
         <h2 className="font-cormorant text-2xl md:text-3xl text-yellow-200  max-w-[80%] pr-4">
           {title}
         </h2>
 
         {subDescription && (
-          <p className="text-gray-300 font-light text-base md:text-lg w-full">
+          <p className="text-gray-300 font-light text-start text-base md:text-lg lg:text-xl w-full">
             {subDescription}
           </p>
         )}
