@@ -65,8 +65,8 @@ const Product: React.FC<ProductProps> = ({
       <div className="absolute inset-0 bg-black/50 pointer-events-none" />
 
       {/* Content container (stacked above overlays) */}
-      <div className="relative z-10 text-start px-2 md:px-10 md:pt-4 flex flex-col items-center justify-between h-full">
-        <h2 className="font-cormorant text-3xl md:text-4xl text-yellow-200  max-w-[90%]">
+      <div className="relative z-10 text-senter px-2 md:px-10 md:pt-4 flex flex-col items-center justify-between h-full">
+        <h2 className="font-cormorant text-2xl md:text-3xl text-yellow-200  max-w-[80%] pr-4">
           {title}
         </h2>
 

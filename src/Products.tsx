@@ -52,7 +52,7 @@ const Products = () => {
               `}
             >
               {/* Title always on top, centered */}
-              <h3 className="font-bold font-cormorant text-xl md:text-2xl text-yellow-200 mb-2 text-center w-full">
+              <h3 className="font-bold font-cormorant text-xl lg:text-2xl text-yellow-200 mb-2 text-center w-full">
                 {product.title}
               </h3>
 
