@@ -71,7 +71,7 @@ const Product: React.FC<ProductProps> = ({
         </h2>
 
         {subDescription && (
-          <p className="text-gray-300 font-light text-start text-base md:text-lg lg:text-xl w-full">
+          <p className="text-gray-300 font-light text-start text-base md:text-lg w-full">
             {subDescription}
           </p>
         )}
